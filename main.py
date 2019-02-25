@@ -9,8 +9,6 @@ video_capture = cv2.VideoCapture(0)
 iwidth=video_capture.get(3)
 iheight=video_capture.get(4)
 
-print("width: "+str(iwidth)+" height: "+str(iheight))
-
 while True:
     # Capture frame-by-frame
     ret, frame = video_capture.read()
@@ -30,8 +28,8 @@ while True:
             cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
         else:
             cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), 2)
-        cv2.circle(frame, (math.floor(x+(w/2)),math.floor(y+(h/2))),5,255)
-        cv2.circle(frame,(math.floor(iwidth/2),math.floor(iheight/2)),5,100)
+        cv2.circle(frame, (math.floor(x+(w/2)),math.floor(y+(h/2))),5,(255,0,0))
+        cv2.circle(frame,(math.floor(iwidth/2),math.floor(iheight/2)),5,(255,0,0))
         cv2.line(frame,(math.floor(x+(w/2)),math.floor(y+(h/2))),(math.floor(iwidth/2),math.floor(iheight/2)),(255,255,0),2)
         cv2.putText(frame,"X: " + str(math.floor((iwidth/2)-(x+(w/2))))+" Y: " + str(math.floor((iheight/2)-(y+(h/2)))),(math.floor((x+(w/4))-50),math.floor((y+(h/4))-35)), cv2.FONT_HERSHEY_SIMPLEX, 0.75,(255,255,255),2,cv2.LINE_AA)
         #calculate the distance using pythagorean thm
